@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AprendizagemMobile</string>
+    <string name="login_text">Entre na sua Conta!</string>
+    <string name="other_login">Ou então insira seus dados de login</string>
+    <string name="entrar">Entrar</string>
+    <string name="google_button">google button</string>
+</resources>
