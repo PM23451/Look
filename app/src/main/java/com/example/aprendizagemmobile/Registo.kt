@@ -1,20 +1,16 @@
 package com.example.aprendizagemmobile
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class MainActivity : AppCompatActivity() {
+class Registo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_registo)
     }
 
-    fun navegarParaSegunda(view: View) {
-        val intent = Intent(this, Registo::class.java)
-        startActivity(intent)
+    fun voltar(view: View) {
+        finish()
     }
-
-
 }

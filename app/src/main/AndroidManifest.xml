@@ -13,6 +13,12 @@
         android:theme="@style/Theme.AprendizagemMobile"
         tools:targetApi="31">
         <activity
+            android:name=".Registo"
+            android:exported="false" />
+        <activity
+            android:name=".registo"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
