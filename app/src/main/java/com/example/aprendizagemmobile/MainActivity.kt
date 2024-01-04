@@ -11,8 +11,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun navegarParaSegunda(view: View) {
+    fun navegarParaRegisto(view: View) {
         val intent = Intent(this, Registo::class.java)
+        startActivity(intent)
+    }
+
+    fun login(view: View) {
+        val intent = Intent(this, Home::class.java)
         startActivity(intent)
     }
 
