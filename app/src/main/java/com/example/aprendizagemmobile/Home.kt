@@ -19,24 +19,19 @@ class Home : AppCompatActivity() {
         // Referência ao Spinner no layout
         spinnerCidades = findViewById(R.id.spinner)
 
-        // Chamada à API para obter a lista de cidades
-        val call = RetrofitClient.cidadesService.getCidades()
+        // Colocar a lista de cidades no Spinner
+        val cidadesService = RetrofitClient.cidadesService
+        val call = cidadesService.getCidades()
+
         call.enqueue(object : Callback<List<String>> {
             override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
-                if (response.isSuccessful) {
-                    // Configurar o adaptador com a lista de cidades
-                    val cidadesAdapter = CidadesAdapter(this@Home, android.R.layout.simple_spinner_item, response.body()!!)
-                    cidadesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-                    // Associar o adaptador ao Spinner
-                    spinnerCidades.adapter = cidadesAdapter
-                } else {
-                    // Tratar erros de resposta
-                }
+                val cidades = response.body() ?: emptyList()
+                val adapter = CidadesAdapter(this@Home, android.R.layout.simple_spinner_item, cidades)
+                spinnerCidades.adapter = adapter
             }
 
             override fun onFailure(call: Call<List<String>>, t: Throwable) {
-                // Tratar falhas na comunicação com a API
+                t.printStackTrace()
             }
         })
     }

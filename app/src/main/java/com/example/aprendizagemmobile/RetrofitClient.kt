@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    const val BASE_URL = "https://json.geoapi.pt/municipio/"
+    const val BASE_URL = "https://json.geoapi.pt/"
 
     val cidadesService: CidadesService by lazy {
         Retrofit.Builder()
