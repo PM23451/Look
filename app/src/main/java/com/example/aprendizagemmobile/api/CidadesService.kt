@@ -4,6 +4,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface CidadesService {
-    @GET("municipio")
+    @GET("all")
     fun getCidades(): Call<List<String>>
 }
