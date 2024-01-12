@@ -63,11 +63,6 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="26dp"
         android:background="@drawable/filtrocidade"
-<<<<<<< HEAD
-        style="@style/Spinner"
-        
-=======
->>>>>>> parent of a7a42d9 (Commit retrofit cidades)
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
