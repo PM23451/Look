@@ -63,8 +63,8 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="26dp"
         android:background="@drawable/filtrocidade"
-        android:textColor="#FFFFFF"
-
+        style="@style/Spinner"
+        
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
