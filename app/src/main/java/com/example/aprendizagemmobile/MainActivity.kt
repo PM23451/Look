@@ -10,19 +10,21 @@ import com.example.aprendizagemmobile.dao.AppDatabase
 
 class MainActivity : AppCompatActivity() {
 
-    val database = Room.databaseBuilder(
-        applicationContext,
-        AppDatabase::class.java,
-        "eventos-db"
-    ).build()
+    private lateinit var database: AppDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val toHome: Button = findViewById(R.id.Login)
+        database = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            "eventos-db"
+        ).build()
+
+        /*val toHome: Button = findViewById(R.id.Login)
         toHome.setOnClickListener {
             startActivity(Intent(this, Home::class.java))
-        }
+        }*/
     }
 
     fun navegarParaRegisto(view: View) {

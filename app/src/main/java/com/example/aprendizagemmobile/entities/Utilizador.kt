@@ -9,5 +9,4 @@ data class Utilizador(
     val email: String,
     val password: String,
     val passwordConfirm: String,
-
     )
