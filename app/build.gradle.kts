@@ -47,6 +47,10 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
 
+    // dependências da biblioteca Room
+    implementation("androidx.room:room-ktx:2.6.0")
+    implementation ("androidx.room:room-runtime:2.6.0")
+
     // dependência do RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     testImplementation("junit:junit:4.13.2")
