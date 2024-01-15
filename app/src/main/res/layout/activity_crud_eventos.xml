@@ -6,68 +6,130 @@
     android:layout_height="match_parent">
 
 
-    <Button
-        android:id="@+id/btnSelecionarImagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onSelecionarImagemClick"
-        android:text="Selecionar Imagem"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="498dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
-
     <TextView
         android:id="@+id/CrudEventos"
         style="@style/TituloEstilo"
         android:layout_width="158dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="28dp"
         android:text="CrudEventos"
-        app:layout_constraintBottom_toTopOf="@+id/email_Textinput2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.048"
         tools:textStyle="bold" />
 
+    <Button
+        android:id="@+id/btnSelecionarImagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="onSelecionarImagemClick"
+        android:text="Selecionar Imagem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.821"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CrudEventos"
+        app:layout_constraintVertical_bias="0.491" />
+
+
+    <TextView
+        android:id="@+id/SelecionarImagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Imagem Evento"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnSelecionarImagem"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CrudEventos" />
+
     <EditText
-        android:id="@+id/email_Textinput"
+        android:id="@+id/Titulo"
         android:layout_width="265dp"
         android:layout_height="60dp"
         android:autofillHints="Email"
         android:background="@drawable/myrect"
         android:elevation="2dp"
         android:ems="10"
-        android:hint="@string/nome"
-        android:inputType="textEmailAddress"
+        android:hint="@string/titulo"
+        android:inputType="text"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254" />
+        app:layout_constraintVertical_bias="0.277" />
 
     <EditText
-        android:id="@+id/email_Textinput2"
+        android:id="@+id/Preco"
         android:layout_width="265dp"
         android:layout_height="60dp"
         android:autofillHints="Email"
         android:background="@drawable/myrect"
         android:elevation="2dp"
         android:ems="10"
-        android:hint="@string/nome"
-        android:inputType="textEmailAddress"
+        android:hint="@string/Preco"
+        android:inputType="number|numberDecimal"
         android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/email_Textinput"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864" />
+        app:layout_constraintTop_toBottomOf="@+id/descicao"
+        app:layout_constraintVertical_bias="0.16" />
+
+    <EditText
+        android:id="@+id/dataInicio"
+        android:layout_width="265dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="316dp"
+        android:autofillHints="Email"
+        android:background="@drawable/myrect"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="@string/dataInicio"
+        android:inputType="datetime"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo"
+        app:layout_constraintVertical_bias="0.27" />
+
+    <EditText
+        android:id="@+id/descicao"
+        android:layout_width="265dp"
+        android:layout_height="60dp"
+        android:autofillHints="Email"
+        android:background="@drawable/myrect"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="@string/descricao"
+        android:inputType="text|textLongMessage"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataFim"
+        app:layout_constraintVertical_bias="0.117" />
+
+    <EditText
+        android:id="@+id/dataFim"
+        android:layout_width="265dp"
+        android:layout_height="60dp"
+        android:autofillHints="Email"
+        android:background="@drawable/myrect"
+        android:elevation="2dp"
+        android:ems="10"
+        android:hint="@string/dataFim"
+        android:inputType="datetime"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataInicio"
+        app:layout_constraintVertical_bias="0.095" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

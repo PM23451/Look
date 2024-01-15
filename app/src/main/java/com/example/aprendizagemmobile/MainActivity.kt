@@ -1,10 +1,10 @@
 package com.example.aprendizagemmobile
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.aprendizagemmobile.dao.AppDatabase
 

@@ -15,6 +15,9 @@
     <string name="criar">Criar</string>
     <string name="nome_evento">Nome evento</string>
     <string name="Ingressos">Ingressos</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="titulo">Titulo</string>
+    <string name="dataInicio">Data de Inicio</string>
+    <string name="dataFim">Data de Fim</string>
+    <string name="descricao">Descricao</string>
+    <string name="Preco">Preco</string>
 </resources>
