@@ -1,11 +1,11 @@
 package com.example.aprendizagemmobile
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.example.aprendizagemmobile.dao.AppDatabase
@@ -30,7 +30,7 @@ class Registo : AppCompatActivity() {
             "Utilizador-db"
         ).build()
 
-        UtilizadorRepository = UtilizadorRepository(database.())
+        UtilizadorRepository = UtilizadorRepository(database.utilizadorDao())
 
 
 
@@ -55,9 +55,9 @@ class Registo : AppCompatActivity() {
         val editPasswordConfirm = findViewById<EditText>(R.id.password_Textinput)
 
         val nome = editNome.text.toString()
-        val email = editEmail
-        val password = editPassword
-        val passwordConf = editPasswordConfirm
+        val email = editEmail.text.toString()
+        val password = editPassword.text.toString()
+        val passwordConf = editPasswordConfirm.text.toString()
 
         val novoUtilizador = Utilizador(nome = nome, email = email , password = password, passwordConfirm = passwordConf)
 
