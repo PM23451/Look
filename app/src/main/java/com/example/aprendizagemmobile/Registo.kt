@@ -59,7 +59,7 @@ class Registo : AppCompatActivity() {
         val password = editPassword
         val passwordConf = editPasswordConfirm
 
-        val novoUtilizador = Utilizador(nome = nome, email = email , password = password, passwordConfirm = passwordConf )
+        val novoUtilizador = Utilizador(nome = nome, email = email , password = password, passwordConfirm = passwordConf)
 
         UtilizadorRepository.inserirUtilizador(novoUtilizador)
 
