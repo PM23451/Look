@@ -2,7 +2,6 @@ package com.example.aprendizagemmobile.entities
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.text.SimpleDateFormat
-import java.util.Date
 import java.util.Locale
 
 
