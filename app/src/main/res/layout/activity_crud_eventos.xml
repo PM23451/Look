@@ -14,35 +14,34 @@
         android:text="CrudEventos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048"
+        app:layout_constraintVertical_bias="0.071"
         tools:textStyle="bold" />
+
 
     <Button
         android:id="@+id/btnSelecionarImagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:onClick="onSelecionarImagemClick"
         android:text="Selecionar Imagem"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
+        app:layout_constraintHorizontal_bias="0.796"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CrudEventos"
-        app:layout_constraintVertical_bias="0.491" />
-
+        app:layout_constraintTop_toBottomOf="@+id/CrudEventos" />
 
     <TextView
         android:id="@+id/SelecionarImagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:text="Imagem Evento"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/btnSelecionarImagem"
-        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CrudEventos" />
 
