@@ -2,12 +2,12 @@ package com.example.aprendizagemmobile.templates
 import com.example.aprendizagemmobile.entities.Utilizador
 import androidx.recyclerview.widget.RecyclerView
 //import com.example.aprendizagemmobile.databinding.ItemAlunoBinding
-class UtilizadorViewHolder {
+class UtilizadorViewHolder(private val binding: ) :
+    RecyclerView.ViewHolder(binding.root) {
 
-    fun realizarLogin(email: String, password: String) {
-        /*viewModelScope.launch {
-            // Chama o repositório para realizar o login
-            _resultadoLogin.value = repository.verificarLogin(email, password)
-        }*/
+    fun bind(utilizador: Utilizador) {
+        binding.Email_Textinput.text = utilizador.email // titulo
+        binding.Password_Textinput.text = utilizador.password  //localizacao
+
     }
 }
