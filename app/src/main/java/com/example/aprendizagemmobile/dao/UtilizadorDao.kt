@@ -14,6 +14,13 @@ interface UtilizadorDao
     @Query("SELECT * FROM Utilizador")
     suspend fun listarUtilizadores(): List<Utilizador>
 
+    @Query("SELECT * FROM Utilizador WHERE email = :email AND password = :password")
+    suspend fun login(email: String, password: String): Utilizador?
+
     @Delete
     suspend fun apagar(utilizador: Utilizador)
+
+    // Função para realizar a autenticação de login
+
 }
+

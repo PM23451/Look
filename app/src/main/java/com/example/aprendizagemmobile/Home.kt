@@ -1,6 +1,5 @@
 package com.example.aprendizagemmobile
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.example.aprendizagemmobile.adapter.CidadesAdapter
@@ -39,5 +38,6 @@ class Home : AppCompatActivity() {
                 // Tratar falhas na comunicação com a API
             }
         })
+
     }
 }
