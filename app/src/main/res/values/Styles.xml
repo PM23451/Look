@@ -3,6 +3,7 @@
     <style name="TituloEstilo">
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textSize">24sp</item>
         <!-- Adicione mais propriedades de estilo conforme necessário -->
     </style>
