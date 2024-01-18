@@ -23,4 +23,7 @@
     <string name="perfil">Perfil</string>
     <string name="favoritos">Favoritos</string>
     <string name="configuracoes">Configurações</string>
+    <string name="configuraces">Configurações</string>
+    <string name="suporte">Suporte</string>
+    <string name="notificacoes">Notificações</string>
 </resources>
