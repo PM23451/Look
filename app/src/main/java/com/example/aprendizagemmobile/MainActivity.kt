@@ -2,6 +2,7 @@ package com.example.aprendizagemmobile
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -15,17 +16,32 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var database: AppDatabase
+    private lateinit var databaseUtilizador: AppDatabase
     private lateinit var UtilizadorRepository: UtilizadorRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val sessionManager = SessionManager(this)
+        val nome = sessionManager.obterNomeUtilizador()
+        if(nome != null) {
+            val intent = Intent(this, Home::class.java)
+            startActivity(intent)
+        }
 
         database = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java,
             "eventos-db"
         ).build()
-        UtilizadorRepository = UtilizadorRepository(database.utilizadorDao())
+
+        databaseUtilizador = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            "Utilizador-db"
+        ).build()
+
+        UtilizadorRepository = UtilizadorRepository(databaseUtilizador.utilizadorDao())
         //Event listner para o botão de login
         val btnLogin = findViewById<Button>(R.id.Login)
         btnLogin.setOnClickListener {
@@ -41,6 +57,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     suspend fun login() {
+
+        val users = UtilizadorRepository.listarUtilizador()
+        Log.d("MainActivity", "Users: $users")
         val editEmail = findViewById<EditText>(R.id.Email_Textinput)
         val editPassword = findViewById<EditText>(R.id.Password_Textinput)
 
@@ -49,6 +68,9 @@ class MainActivity : AppCompatActivity() {
 
         val res = UtilizadorRepository.login(email, password)
         if (res != null) {
+            val sessionManager = SessionManager(this)
+            sessionManager.guardarInformacoesUtilizador(res.nome, res.email)
+
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
         }
