@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val sessionManager = SessionManager(this)
         val nome = sessionManager.obterNomeUtilizador()
+        //val email = sessionManager.obterEmailUtilizador()
         if(nome != null) {
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
