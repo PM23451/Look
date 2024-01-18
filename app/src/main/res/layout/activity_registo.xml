@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_Textinput"
+        app:layout_constraintTop_toBottomOf="@+id/passwordconfirm_Textinput"
         app:layout_constraintVertical_bias="0.097" />
 
     <EditText
@@ -78,7 +78,7 @@
         app:layout_constraintVertical_bias="0.048" />
 
     <EditText
-        android:id="@+id/password_Textinput"
+        android:id="@+id/passwordconfirm_Textinput"
         android:layout_width="265dp"
         android:layout_height="60dp"
         android:autofillHints=""
