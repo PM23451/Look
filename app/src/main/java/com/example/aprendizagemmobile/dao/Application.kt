@@ -8,7 +8,7 @@ class Application(context: Context) {
         AppDatabase::class.java, "lookBD"
     ).build()
 
-    val eventoDatabase = AppDatabase.getDatabase(applicationContext)
+    val eventoDatabase = AppDatabase.getDatabase(context)
     val eventoDao = eventoDatabase.eventoDao()
 
 }

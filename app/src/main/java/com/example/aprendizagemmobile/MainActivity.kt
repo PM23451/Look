@@ -3,12 +3,14 @@ package com.example.aprendizagemmobile
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.example.aprendizagemmobile.dao.AppDatabase
 import com.example.aprendizagemmobile.dao.UtilizadorRepository
-import com.example.aprendizagemmobile.entities.Utilizador
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,11 +25,14 @@ class MainActivity : AppCompatActivity() {
             AppDatabase::class.java,
             "eventos-db"
         ).build()
-
-        /*val toHome: Button = findViewById(R.id.Login)
-        toHome.setOnClickListener {
-            startActivity(Intent(this, Home::class.java))
-        }*/
+        UtilizadorRepository = UtilizadorRepository(database.utilizadorDao())
+        //Event listner para o botão de login
+        val btnLogin = findViewById<Button>(R.id.Login)
+        btnLogin.setOnClickListener {
+            lifecycleScope.launch {
+                login()
+            }
+        }
     }
 
     fun navegarParaRegisto(view: View) {
@@ -35,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    suspend fun login(view: View) {
+    suspend fun login() {
         val editEmail = findViewById<EditText>(R.id.Email_Textinput)
         val editPassword = findViewById<EditText>(R.id.Password_Textinput)
 
@@ -43,10 +48,13 @@ class MainActivity : AppCompatActivity() {
         val password = editPassword.text.toString()
 
         val res = UtilizadorRepository.login(email, password)
-
         if (res != null) {
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
+        }
+        else {
+            editEmail.error = "Credenciais inválidas"
+            editPassword.error = "Credenciais inválidas"
         }
     }
 

@@ -31,6 +31,6 @@ val novoEvento = Evento(
 )
 
 // Em uma coroutine, por exemplo:
-viewModelScope.launch {
+/*viewModelScope.launch {
     EventoDao.inserir(novoEvento)
-}
+}*/
