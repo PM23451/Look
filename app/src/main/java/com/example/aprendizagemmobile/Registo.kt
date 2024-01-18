@@ -41,23 +41,56 @@ class Registo : AppCompatActivity() {
             }
         }
 
-        val buttonToMainActivity: Button = findViewById(R.id.Registo)
+        /*val buttonToMainActivity: Button = findViewById(R.id.Registo)
         buttonToMainActivity.setOnClickListener {
             startActivity(Intent(this, Eventos::class.java))
-        }
+        }*/
     }
 
     suspend fun inserirUtilizador() {
 
         val editNome = findViewById<EditText>(R.id.nome)
         val editEmail = findViewById<EditText>(R.id.Email_Textinput)
-        val editPassword = findViewById<EditText>(R.id.password_Textinput)
-        val editPasswordConfirm = findViewById<EditText>(R.id.password_Textinput)
+        val editPassword = findViewById<EditText>(R.id.Password_Textinput)
+        val editPasswordConfirm = findViewById<EditText>(R.id.passwordconfirm_Textinput)
 
         val nome = editNome.text.toString()
         val email = editEmail.text.toString()
         val password = editPassword.text.toString()
         val passwordConf = editPasswordConfirm.text.toString()
+
+        if(nome.isEmpty()){
+            editNome.error = "Nome obrigatório"
+            return
+        }
+
+        if(email.isEmpty()){
+            editEmail.error = "Email obrigatório"
+            return
+        }
+
+        if(password.isEmpty()){
+            editPassword.error = "Password obrigatória"
+            return
+        }
+
+        if(passwordConf.isEmpty()){
+            editPasswordConfirm.error = "Password obrigatória"
+            return
+        }
+
+        // Verificar se é email valido
+        if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            editEmail.error = "Email inválido"
+            return
+        }
+
+        if(password != passwordConf){
+            editPassword.error = "As passwords não coincidem"
+            editPasswordConfirm.error = "As passwords não coincidem"
+            return
+        }
+
 
         val novoUtilizador = Utilizador(nome = nome, email = email , password = password, passwordConfirm = passwordConf)
 
@@ -69,6 +102,10 @@ class Registo : AppCompatActivity() {
         editPasswordConfirm.text.clear()
         editNome.requestFocus()
         atualizarListaUtilizadores()
+
+        //Ir para a pagina home
+        val intent = Intent(this, Home::class.java)
+        startActivity(intent)
     }
 
     override fun onResume() {
