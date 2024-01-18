@@ -26,4 +26,5 @@
     <string name="configuraces">Configurações</string>
     <string name="suporte">Suporte</string>
     <string name="notificacoes">Notificações</string>
+    <string name="close_drawer">Fechar</string>
 </resources>

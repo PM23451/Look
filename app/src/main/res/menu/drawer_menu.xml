@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/menu/drawer_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item1"
+            android:title="@string/perfil"
+            android:icon="@drawable/accountcircle" />
+        <item
+            android:id="@+id/nav_item2"
+            android:title="@string/favoritos"
+            android:icon="@drawable/favorite" />
+        <item
+            android:id="@+id/nav_item3"
+            android:title="@string/configuracoes"
+            android:icon="@drawable/settings" />
+    </group>
+</menu>

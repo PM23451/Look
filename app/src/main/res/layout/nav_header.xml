@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/nav_header.xml -->
+<!-- res/layout/nav_header.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:background="#F7F2FA">
+
+    <!-- Adicione elementos de cabeçalho, como uma imagem de perfil e um nome -->
+
+    <!-- Adicione a ListView para mostrar os itens do Navigation Drawer -->
+    <ListView
+        android:id="@+id/nav_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp"/>
+
+    <!-- Adicione um botão de fechar -->
+    <ImageButton
+        android:id="@+id/btn_close_drawer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"
+        android:onClick="fecharOMenu"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@drawable/arrowback24px"
+        android:contentDescription="@string/close_drawer" />
+</LinearLayout>
+
+
