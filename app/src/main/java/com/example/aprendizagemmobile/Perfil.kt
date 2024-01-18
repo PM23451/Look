@@ -19,6 +19,10 @@ class Perfil : AppCompatActivity() {
         }
     }
 
+    val sessionManager = SessionManager(this)
+    val nome = sessionManager.obterNomeUtilizador()
+    val email = sessionManager.obterEmailUtilizador()
+
     fun voltar(view: View) {
         finish()
     }

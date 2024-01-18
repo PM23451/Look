@@ -25,6 +25,21 @@ class SessionManager(context: Context) {
         return sharedPreferences.getString(KEY_EMAIL, null)
     }
 
+    fun alterarNome (novoNome: String){
+        val sharedPreferences = context.getSharedPreferences("Minhas Preferencias", Context.MODE_PRIVATE);
+        val editor = sharedPreferences.edit()
+        editor.putString("NOME_USUARIO", novoNome)
+        editor.apply()
+    }
+
+    fun definirEmailUtilizador(novoEmail: String){
+        val sharedPreferences = context.getSharedPreferences("Minhas Preferencias", Context.MODE_PRIVATE);
+        val editor = sharedPreferences.edit()
+        editor.putString("EMAIL_USUARIO", novoEmail)
+        editor.apply()
+    }
+
+
     fun limparSessao() {
         editor.remove(KEY_NAME)
         editor.remove(KEY_EMAIL)
