@@ -9,6 +9,10 @@ class Perfil : AppCompatActivity() {
         setContentView(R.layout.activity_registo)
     }
 
+    val sessionManager = SessionManager(this)
+    val nome = sessionManager.obterNomeUtilizador()
+    val email = sessionManager.obterEmailUtilizador()
+
     fun voltar(view: View) {
         finish()
     }
