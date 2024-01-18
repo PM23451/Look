@@ -1,5 +1,6 @@
 package com.example.aprendizagemmobile
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -10,10 +11,9 @@ class Config : AppCompatActivity() {
         setContentView(R.layout.activity_config)
     }
 
-    fun alterarNome (view : View){
-        val sessionManager = SessionManager(this)
-        val nome = sessionManager.obterNomeUtilizador()
-    }
+   val sessionManager = SessionManager(this)
+   sessionManager.alterarNome("Novo Nome")
+
     fun voltar(view: View) {
         finish()
     }

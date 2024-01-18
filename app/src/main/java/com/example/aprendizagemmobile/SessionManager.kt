@@ -25,7 +25,7 @@ class SessionManager(context: Context) {
         return sharedPreferences.getString(KEY_EMAIL, null)
     }
 
-    fun definirNomeUtilizador(novoNome: String){
+    fun alterarNome (novoNome: String){
         val sharedPreferences = context.getSharedPreferences("Minhas Preferencias", Context.MODE_PRIVATE);
         val editor = sharedPreferences.edit()
         editor.putString("NOME_USUARIO", novoNome)
