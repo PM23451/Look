@@ -3,13 +3,17 @@ package com.example.aprendizagemmobile
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.aprendizagemmobile.dao.AppDatabase
+import com.example.aprendizagemmobile.dao.UtilizadorRepository
+import com.example.aprendizagemmobile.entities.Utilizador
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var database: AppDatabase
+    private lateinit var UtilizadorRepository: UtilizadorRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,9 +35,19 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun login(view: View) {
-        val intent = Intent(this, Home::class.java)
-        startActivity(intent)
+    suspend fun login(view: View) {
+        val editEmail = findViewById<EditText>(R.id.Email_Textinput)
+        val editPassword = findViewById<EditText>(R.id.Password_Textinput)
+
+        val email = editEmail.text.toString()
+        val password = editPassword.text.toString()
+
+        val res = UtilizadorRepository.login(email, password)
+
+        if (res != null) {
+            val intent = Intent(this, Home::class.java)
+            startActivity(intent)
+        }
     }
 
     /* CoroutineScope(Dispatchers.Main).launch {

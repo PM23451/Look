@@ -13,4 +13,8 @@ class UtilizadorRepository(private val UtilizadorDao: UtilizadorDao)
     suspend fun apagarUtilizador(utilizador: Utilizador) {
         UtilizadorDao.apagar(utilizador)
     }
+
+    suspend fun login(email: String, password: String): Utilizador? {
+        return UtilizadorDao.login(email, password)
+    }
 }
