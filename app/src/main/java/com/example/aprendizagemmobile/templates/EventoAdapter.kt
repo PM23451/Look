@@ -32,6 +32,7 @@ class EventoAdapter(private val eventos: List<Evento>) :
         }
     }
 
+
     override fun getItemCount(): Int {
         return eventos.size
     }

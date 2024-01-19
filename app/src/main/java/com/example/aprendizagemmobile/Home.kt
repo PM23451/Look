@@ -3,14 +3,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ListView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.aprendizagemmobile.adapter.CidadesAdapter
@@ -22,9 +20,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-import com.example.aprendizagemmobile.dao.EventoDao
-import com.example.aprendizagemmobile.entities.Evento
-import com.example.aprendizagemmobile.templates.EventoAdapter
+import com.example.aprendizagemmobile.adapter.EventoAdapter
+import com.example.aprendizagemmobile.model.Evento
 
 class Home : AppCompatActivity() {
 
@@ -47,39 +44,47 @@ class Home : AppCompatActivity() {
         //Chamar o repositorio
         val eventsRepo = eventsRepo.getEventsRepo()
 
-        listarEventos()
 
         // Inicialize a DrawerLayout
         var drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
 
-        // Restante do código...
 
-        // Adicione o seguinte trecho ao método onCreate para configurar a lista
-        /*val listView: ListView = findViewById(R.id.nav_list)
-        val drawerItems = arrayOf("Item 1", "Subitem 1", "Subitem 2", "Item 2", "Item 3")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, drawerItems)
-        listView.adapter = adapter*/
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+
+        // Chama a função para ir buscar dados da API
+        fetchData()
 
 
         val navView: NavigationView = findViewById(R.id.nav_view)
         val headerView: View = navView.getHeaderView(0)
         val btnFechar = headerView.findViewById<ImageButton>(R.id.btn_close_drawer)
-        val menu1 = headerView.findViewById<Button>(R.id.nav_item1)
-        val menu2 = headerView.findViewById<Button>(R.id.nav_item2)
-        val menu3 = headerView.findViewById<Button>(R.id.nav_item3)
 
-        menu1.setOnClickListener {
+        val menu = navView.menu
+
+        val menu1 = menu.findItem(R.id.nav_item1)
+        val menu2 = menu.findItem(R.id.nav_item2)
+        val menu3 = menu.findItem(R.id.nav_item3)
+
+        menu1.setOnMenuItemClickListener {
             val intent = Intent(this, Perfil::class.java)
             startActivity(intent)
+            true
         }
-        menu2.setOnClickListener {
+
+        menu2.setOnMenuItemClickListener {
             val intent = Intent(this, Perfil::class.java)
             startActivity(intent)
+            true
         }
-        menu3.setOnClickListener {
-            val intent = Intent(this, Perfil::class.java)
+
+        menu3.setOnMenuItemClickListener {
+            val intent = Intent(this, Config::class.java)
             startActivity(intent)
+            true
         }
+
         btnFechar.setOnClickListener {
             drawerLayout.closeDrawer(Gravity.LEFT)
         }
@@ -121,25 +126,26 @@ class Home : AppCompatActivity() {
 
     }
 
-    private fun listarEventos() {
+    private fun fetchData() {
+        val eventosadapter = EventoAdapter(emptyList())
         lifecycleScope.launch {
-            val recicleView = findViewById<RecyclerView>(R.id.recyclerView)
-            val eventoDao = evento.eventoDao()
-            //inserir um evento
-            val novoEvento = Evento(
-                nome = "Nome do Evento",
-                localizacao = "Aveiro",
-                dataInicio = "01 Janeiro 2024",  // Substitua com sua data real
-                idHorarios = 1,  // Substitua com seu ID de horário real
-                dataFim = "03 Janeiro 2024",  // Substitua com sua data real
-                preco = 20.0,  // Substitua com seu preço real
-                descricao = "Descrição do Evento",
-                gratuito = false
-            )
-            eventoDao.inserir(novoEvento)
-            val eventos = eventoDao.listarEventos()
+            val eventos = evento.eventoDao().listarEventos()
             val adapter = EventoAdapter(eventos)
-            recicleView.adapter = adapter
+            val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+            recyclerView.adapter = adapter
+            eventosadapter.updateEventos(eventos)
+
+            
+
+
+            //Colocar um eventListner em cada botão para ir para o ecrã de detalhes
+            //Inserir um evento
+            //evento.eventoDao().inserir(Evento(nome = "Evento 1", localizacao = "Porto", dataInicio = "2021-05-05", idHorarios = 1, dataFim = "2021-05-05", preco = 0.0, descricao = "Evento 1", gratuito = true))
         }
+    }
+    private fun abrirProximaPagina(id: Int) {
+        /*val intent = Intent(this, ::class.java)
+        intent.putExtra("ID", id)
+        startActivity(intent)*/
     }
 }
